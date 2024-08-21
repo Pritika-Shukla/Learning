@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="first number" id="firstNumber">
+    <br><br>
+    <input type="text" placeholder="second number" id="secondNumber">
+    <br><br>
+    <button onclick="getSum()">Sum</button>
+    <br><br>
+    <p id="finalSum"></p>
+ <script>
+    function getSum(){
+        const a =document.getElementById("firstNumber").value;
+        const b =document.getElementById("secondNumber").value;
+        const sum=document.getElementById("finalSum")
+        sum.innerHTML=parseInt(a)+parseInt(b);
+    }   
+ </script>
+</body>
+</html>
