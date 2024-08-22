@@ -1,10 +1,10 @@
 const { Admin } = require("../db");
 
 function adminMiddleware(req, res, next) {
-  const username = req.heaaders.username;
-  const password = req.header.password;
+  const username = req.headers.username;
+  const password = req.headers.password;
   Admin.findOne({
-    usernameL: username,
+    username: username,
     password: password,
   }).then(function (value) {
     if (value) {
