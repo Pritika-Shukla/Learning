@@ -1,0 +1,26 @@
+import React, { useEffect } from 'react'
+
+const Receiver = () => {
+
+  useEffect(()=>{
+    const socket=new WebSocket('ws://localhost:8080');
+     socket.onopen=()=>{
+      socket.send(JSON.stringify({type:'receiver'}))
+     }
+    socket.onmessage=(event)=>{
+      const message=JSON.parse(event.data);
+      if(message.type==='createOffer'){
+        const pc=new RTCPeerConnection();
+        pc.setRemoteDescription(message.sdp);
+        const answer=await pc.createAnswer();
+      }
+    }
+    },[]);
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default Receiver
