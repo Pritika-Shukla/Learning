@@ -16,14 +16,18 @@ app.post('/todo', async (req, res) => {
   await todo.create({
     title: createPayload.title,
     description: createPayload.description,
+    completed:false
   });
 });
 
-app.get('/todos', (req, res) => {
-  const todos = todo.find({});
+app.get ('/todos', async(req, res) => {
+  const todos = await todo.find();
+  res.json({
+    todos
+  })
 });
 
-app.put('/completed', (req, res) => {
+app.put('/completed', async(req, res) => {
   const updatePayload = req.body;
   const parsePayload = updateTodo.safeParse(updatePayload);
   if (!parsePayload.success) {
@@ -32,6 +36,9 @@ app.put('/completed', (req, res) => {
     });
     return;
   }
+  await todo.update({
+    _id:req.body.id,
+  })
 });
 
 app.listen(3000, () => {
