@@ -85,3 +85,58 @@ const t:Teamleader={
   age: 30,
   department: "IT"
 }
+
+//Array
+
+function maxArr(arr:number[]){
+  let max=0;
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]>max){
+      max=arr[i];
+    }
+  }
+  return max;
+}
+
+console.log(maxArr([1,3,4,5,6]));
+
+
+//Enum
+
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right
+}
+
+function DoSomething(Keypressed: Direction) {
+  switch (Keypressed) {
+    case Direction.Up:
+      console.log("You pressed Up");
+      break;
+    case Direction.Down:
+      console.log("You pressed Down");
+      break;
+    case Direction.Left:
+      console.log("You pressed Left");
+      break;
+    case Direction.Right:
+      console.log("You pressed Right");
+      break;
+    default:
+      console.log("Unknown direction");
+  }
+}
+
+DoSomething(Direction.Up);
+
+//Generics
+
+function identity<T>(arg:T):T {
+  return arg
+}
+
+let num1=identity<string>("Pritika");
+let num2=identity<number>(123456);
+console.log(num1, num2);
