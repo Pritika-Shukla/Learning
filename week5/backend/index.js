@@ -1,8 +1,9 @@
 const express = require("express");
 const { todo } = require("./db");
 const { z } = require("zod"); // Import Zod for validation
-
+const cors = require("cors");
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Define the validation schema for creating a todo
