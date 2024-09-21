@@ -76,6 +76,8 @@
 // export default App;
 
 import React, { useEffect, useState } from "react";
+import Count from "./todo";
+import Code from "./hooks";
 
 const App = () => {
   const [todo, setTodo] = useState(null);
@@ -108,6 +110,8 @@ function Todo({ todo }) {
     <div>
       <h1>Todo {todo.id}</h1>
       <p>{todo.todo}</p>
+    <Count/>
+   <Code/>
     </div>
   );
 }
