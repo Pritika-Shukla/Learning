@@ -1,11 +1,11 @@
 import axios from "axios";
 
 
-async function fetchData() {
-  const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/todos/2"
-  );
-
+// async function fetchData() {
+//   const response = await axios.get(
+//     "https://jsonplaceholder.typicode.com/todos/2"
+//   );
+hi there
 
   return response.data;
 }
