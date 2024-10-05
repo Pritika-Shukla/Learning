@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
+// Connect to your Prisma database
 const client = new PrismaClient();
 export  function GET(req:NextRequest){
     return NextResponse.json({
