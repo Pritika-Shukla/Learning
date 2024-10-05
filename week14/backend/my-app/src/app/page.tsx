@@ -1,32 +1,28 @@
-// import axios from "axios";
+import { PrismaClient } from "@prisma/client";
 
+const client = new PrismaClient();
 
-// // async function fetchData() {
-// //   const response = await axios.get(
-// //     "https://jsonplaceholder.typicode.com/todos/2"
-// //   );
+// Fetch user data from the database
+async function fetchData() {
+  const user = await client.user.findFirst();
+  
+  if (!user) {
+    return { name: "No User Found", password: "N/A" };
+  }
 
-
-// //   return response.data;
-// // }
-
-// export default async function Home() {
-//   const data = await fetchData();
-//   return (
-//     <div>
-//       bhhjgorhsdgohejrso  
-//       <h1>{data.title}</h1>
-//     </div>
-//   );
-// }
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>
-      fsdf
-    </div>
-  )
+  return {
+    name: user.name,
+    password: user.password,
+  };
 }
 
-export default page
+export default async function Home() {
+  const data = await fetchData();
+
+  return (
+    <div>
+      <h1>Name: {data.name}</h1>
+      <h1>Password: {data.password}</h1>
+    </div>
+  );
+}
